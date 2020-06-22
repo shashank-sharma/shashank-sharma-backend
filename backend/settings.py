@@ -38,7 +38,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = is_debug
 
-ALLOWED_HOSTS = ['localhost', 'shashank-sharma.xyz']
+ALLOWED_HOSTS = ['localhost', 'shashank-sharma.xyz', 'shashank-sharma.herokuapp.com']
 
 
 # Application definition
