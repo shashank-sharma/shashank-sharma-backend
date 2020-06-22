@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/shashank-sharma/shashank-sharma-backend.svg?token=avBnQmAu2uKCMqEGwpmq&branch=master)](https://travis-ci.com/shashank-sharma/shashank-sharma-backend)
+[![Build Status](https://travis-ci.org/shashank-sharma/shashank-sharma-backend.svg?branch=master)](https://travis-ci.org/shashank-sharma/shashank-sharma-backend)
 
 # Introduction
 
