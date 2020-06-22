@@ -14,8 +14,6 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'last_name',
             'gender',
             'is_admin',
-            'is_worker',
-            'is_volunteer',
             'date_joined',
             'avatar',
         ]
@@ -33,8 +31,6 @@ class UserSerializer(serializers.ModelSerializer):
             'last_name',
             'gender',
             'is_admin',
-            'is_worker',
-            'is_volunteer',
             'date_joined',
             'password',
         ]
