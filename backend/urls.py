@@ -21,5 +21,6 @@ from rest_framework.documentation import include_docs_urls
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/accounts/', include(('accounts.api.urls', 'accounts'), namespace='api-accounts')),
+    url(r'^api/docs/', include(('docs.api.urls', 'docs'), namespace='api-documents')),
     url(r'^docs/', include_docs_urls(title='API Docs', permission_classes=[], public=True))
 ]

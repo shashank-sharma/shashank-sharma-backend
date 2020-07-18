@@ -15,15 +15,21 @@ import dj_database_url
 from decouple import config
 import django_heroku
 
+from oauth2client.service_account import ServiceAccountCredentials
+
 
 production = False
 is_debug = True
+is_spreadsheet = False
 
 if config('PRODUCTION', default='False').lower() == 'true':
     production = True
 
 if config('DEBUG', default='True').lower() == 'false':
     is_debug = False
+
+if config('GAUTH_SPREADSHEET', default='false').lower() == 'true':
+    is_spreadsheet = True
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -180,5 +186,10 @@ JWT_AUTH = {
 
 # Custom User model for phone_number and password login
 AUTH_USER_MODEL = 'accounts.User'
+
+
+if is_spreadsheet:
+    GAUTH_SCOPE = [config('GAUTH_SCOPE')]
+    GAUTH_CREDS = ServiceAccountCredentials.from_json_keyfile_name(config('GAUTH_CREDS'), GAUTH_SCOPE)
 
 django_heroku.settings(locals())
