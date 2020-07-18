@@ -17,6 +17,7 @@ class SpreadsheetModel(object):
                      {"name": "updated_at", "type": "str", "limit": 80}]
 
 
+# If spreadsheet is false, then give error
 class SpreadsheetBuilder(object):
 
     def __init__(self, filename, json_data):

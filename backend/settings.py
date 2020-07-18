@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'accounts',
+    'docs'
 ]
 
 MIDDLEWARE = [
@@ -186,7 +187,7 @@ JWT_AUTH = {
 
 # Custom User model for phone_number and password login
 AUTH_USER_MODEL = 'accounts.User'
-
+GAUTH_CREDS = None
 
 if is_spreadsheet:
     GAUTH_SCOPE = [config('GAUTH_SCOPE')]
