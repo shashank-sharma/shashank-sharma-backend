@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework.documentation import include_docs_urls
+from .views import HealthAPIView
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api/health/', HealthAPIView.as_view(), name='api-health'),
     url(r'^api/accounts/', include(('accounts.api.urls', 'accounts'), namespace='api-accounts')),
     url(r'^api/docs/', include(('docs.api.urls', 'docs'), namespace='api-documents')),
     url(r'^docs/', include_docs_urls(title='API Docs', permission_classes=[], public=True))

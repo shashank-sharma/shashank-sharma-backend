@@ -189,6 +189,11 @@ JWT_AUTH = {
 AUTH_USER_MODEL = 'accounts.User'
 GAUTH_CREDS = None
 
+# TODO: Check if without writing file, have creds
+if production:
+    with open(config('GAUTH_CREDS'), 'w') as f:
+        f.write(config('GAUTH_CREDS_VALUE'))
+
 if is_spreadsheet:
     GAUTH_SCOPE = [config('GAUTH_SCOPE')]
     GAUTH_CREDS = ServiceAccountCredentials.from_json_keyfile_name(config('GAUTH_CREDS'), GAUTH_SCOPE)
