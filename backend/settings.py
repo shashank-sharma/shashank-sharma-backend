@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import datetime
 import dj_database_url
 from decouple import config
 import django_heroku
@@ -188,6 +189,7 @@ JWT_AUTH = {
 # Custom User model for phone_number and password login
 AUTH_USER_MODEL = 'accounts.User'
 GAUTH_CREDS = None
+LATEST_UPDATED_AT = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
 # TODO: Check if without writing file, have creds
 if production:
