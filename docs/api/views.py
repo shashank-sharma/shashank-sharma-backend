@@ -26,3 +26,43 @@ class SpreadsheetAPIView(APIView):
             sb.append()
             return Response({"status": "created"}, status=status.HTTP_201_CREATED)
         return Response({"status": "Incorrect Input"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class SpreadsheetLoginAPIView(APIView):
+    """
+    List all snippets, or create a new snippet.
+    """
+    permission_classes = (IsAdminOrSuperUser,)
+
+    def get(self, request, format=None):
+        # TODO: Implement this
+        return Response({"data": "success"})
+
+    def post(self, request, format=None):
+        json_data = request.data
+        if "filename" not in json_data:
+            return Response({"status": "Bad Request"}, status=status.HTTP_400_BAD_REQUEST)
+        sb = SpreadsheetBuilder(filename=json_data["filename"], json_data={})
+        if sb.login():
+            return Response({"status": "created"}, status=status.HTTP_201_CREATED)
+        return Response({"status": "Incorrect Input"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class SpreadsheetLogoutAPIView(APIView):
+    """
+    List all snippets, or create a new snippet.
+    """
+    permission_classes = (IsAdminOrSuperUser,)
+
+    def get(self, request, format=None):
+        # TODO: Implement this
+        return Response({"data": "success"})
+
+    def post(self, request, format=None):
+        json_data = request.data
+        if "filename" not in json_data:
+            return Response({"status": "Bad Request"}, status=status.HTTP_400_BAD_REQUEST)
+        sb = SpreadsheetBuilder(filename=json_data["filename"], json_data={})
+        if sb.logout():
+            return Response({"status": "created"}, status=status.HTTP_201_CREATED)
+        return Response({"status": "Incorrect Input"}, status=status.HTTP_400_BAD_REQUEST)
